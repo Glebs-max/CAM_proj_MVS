@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Панель управления -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <ComboBox x:Name="cmbCameras" Width="200" Margin="5"/>
+            <Button x:Name="btnConnect" Content="Подключиться" Margin="5" Width="100" Click="btnConnect_Click"/>
+            <Button x:Name="btnStart" Content="Старт" Margin="5" Width="100" Click="btnStart_Click" IsEnabled="False"/>
+            <Button x:Name="btnStop" Content="Стоп" Margin="5" Width="100" Click="btnStop_Click" IsEnabled="False"/>
+            <CheckBox x:Name="chkAnalyze" Content="Анализировать изображения" Margin="5" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Область отображения изображения -->
+        <Image x:Name="imgCameraView" Grid.Row="1" Stretch="Uniform"/>
+
+        <!-- Панель статуса и результатов -->
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>
+                <TextBlock x:Name="txtStatus" Text="Готово к подключению"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock x:Name="txtAnalysisResult" Text="Результат: -"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock x:Name="txtFps" Text="FPS: 0"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
